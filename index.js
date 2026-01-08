@@ -17,6 +17,7 @@ app.get("/wind", (req, res) => {
   res.json({ message: "wind endpoint works" });
 });
 
+// Total endpoint
 app.get("/total", (req, res) => {
   res.json({ message: "total endpoint works" });
 });
