@@ -7,17 +7,38 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
-// Solar endpoint
+// Solar endpoint (real logic)
 app.get("/solar", (req, res) => {
-  res.json({ message: "solar endpoint works" });
+  const { watt, hours } = req.query;
+
+  // Validate input
+  if (!watt || !hours) {
+    return res.json({
+      error: "Missing watt or hours",
+      example: "/solar?watt=300&hours=5"
+    });
+  }
+
+  const w = Number(watt);
+  const h = Number(hours);
+
+  // Basic calculation
+  const energy = w * h;
+
+  res.json({
+    watt: w,
+    hours: h,
+    energy,
+    message: "solar calculation ok"
+  });
 });
 
-// Wind endpoint
+// Wind endpoint (placeholder)
 app.get("/wind", (req, res) => {
   res.json({ message: "wind endpoint works" });
 });
 
-// Total endpoint
+// Total endpoint (placeholder)
 app.get("/total", (req, res) => {
   res.json({ message: "total endpoint works" });
 });
