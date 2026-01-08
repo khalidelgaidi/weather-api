@@ -11,7 +11,6 @@ app.get("/health", (req, res) => {
 app.get("/solar", (req, res) => {
   const { watt, hours } = req.query;
 
-  // Validate input
   if (!watt || !hours) {
     return res.json({
       error: "Missing watt or hours",
@@ -21,8 +20,6 @@ app.get("/solar", (req, res) => {
 
   const w = Number(watt);
   const h = Number(hours);
-
-  // Basic calculation
   const energy = w * h;
 
   res.json({
