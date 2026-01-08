@@ -1,5 +1,0 @@
-Railway
-
-OPENWEATHER_KEY
-
-6c3437dff5bb56f91d126f9bb5634e25
