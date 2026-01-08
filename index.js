@@ -17,6 +17,10 @@ app.get("/wind", (req, res) => {
   res.json({ message: "wind endpoint works" });
 });
 
+app.get("/total", (req, res) => {
+  res.json({ message: "total endpoint works" });
+});
+
 // Port (Railway uses process.env.PORT)
 const PORT = process.env.PORT || 3000;
 
