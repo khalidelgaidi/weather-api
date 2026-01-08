@@ -30,9 +30,29 @@ app.get("/solar", (req, res) => {
   });
 });
 
-// Wind endpoint (placeholder)
+// Wind endpoint (simple logic)
 app.get("/wind", (req, res) => {
-  res.json({ message: "wind endpoint works" });
+  const { speed, area } = req.query;
+
+  if (!speed || !area) {
+    return res.json({
+      error: "Missing speed or area",
+      example: "/wind?speed=5&area=3"
+    });
+  }
+
+  const v = Number(speed);
+  const a = Number(area);
+
+  // Simple wind power formula
+  const power = 0.5 * a * Math.pow(v, 3);
+
+  res.json({
+    speed: v,
+    area: a,
+    power,
+    message: "wind calculation ok"
+  });
 });
 
 // Total endpoint (placeholder)
